@@ -10,3 +10,5 @@
     snap:
       name: microk8s
       classic: yes
+  - name: Enable services
+    shell: microk8s enable dashboard dns
