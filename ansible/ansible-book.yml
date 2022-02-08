@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  gather_facts: false
+  connection: local
+  become: yes
+
+  tasks:
+    - name: Install microk8s
+      apt:
+        name: microk8s
+        state: present
+    - name: Confirm services are running
+      service:
+        name: microk8s
+        state: started
