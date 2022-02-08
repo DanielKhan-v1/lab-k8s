@@ -13,6 +13,11 @@
   - name: Enable services
     shell: microk8s enable dashboard dns
 
+  - name: Install helm
+    snap:
+      name: helm
+      classic: yes
+
   - name: Helm start
     kubernetes.core.helm:
       release_name: "jenkins"
