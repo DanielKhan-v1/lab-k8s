@@ -12,10 +12,9 @@
       classic: yes
   - name: Enable services
     shell: microk8s enable dashboard dns
-
-  - name: Helm
+  - name: Helm start
     kubernetes.core.helm:
-      name: jenkins
-      namespace: jenkins
+      release_name: "jenkins"
+      release_namespace: "jenkins"
       create_namespace: yes
-      chart_repo_url: https://danielkhan-v1.github.io/lab-k8s/
+      chart_repo_url: "https://danielkhan-v1.github.io/lab-k8s/"
