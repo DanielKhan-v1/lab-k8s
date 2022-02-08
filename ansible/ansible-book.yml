@@ -23,4 +23,5 @@
       release_name: "jenkins"
       release_namespace: "jenkins"
       create_namespace: yes
+      kubeconfig: ~/.kube/config
       chart_ref: "https://danielkhan-v1.github.io/lab-k8s/"
