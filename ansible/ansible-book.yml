@@ -18,10 +18,15 @@
       name: helm
       classic: yes
 
+  - name: Add remote chart repo
+    kubernetes.core.helm_repository:
+      name: remote
+      repo_url: "https://danielkhan-v1.github.io/lab-k8s/"
+
   - name: Helm start
     kubernetes.core.helm:
       release_name: "jenkins"
       release_namespace: "jenkins"
       create_namespace: yes
       kubeconfig: ~/.kube/config
-      chart_ref: "https://danielkhan-v1.github.io/lab-k8s/"
+      chart_ref: remote/jenkins
