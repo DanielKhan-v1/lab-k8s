@@ -13,6 +13,9 @@
   - name: Enable services
     shell: microk8s enable dashboard dns
 
+  - name: Create kube config
+    shell: microk8s kubectl config view --raw >~/.kube/config
+
   - name: Install helm
     snap:
       name: helm
