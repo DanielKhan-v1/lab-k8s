@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo sudo apt update
+sudo sudo apt update -y
 sudo apt install ansible
 sudo apt upgrade -y
 
