@@ -103,7 +103,9 @@ resource "aws_instance" "app_server" {
   subnet_id     = aws_subnet.subnet.id
   iam_instance_profile = "jenkins"
   depends_on = [aws_internet_gateway.gateway]
-
+  root_block_device {
+    volume_size = "20"
+  }
   tags = {
     Name = "lab-EC2_instance-daniil"
   }
