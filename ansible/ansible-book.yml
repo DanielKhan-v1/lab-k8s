@@ -7,7 +7,7 @@
   tasks:
     - name: Install microk8s
       apt:
-        name: microk8s
+        name: microk8s --classic
         state: present
     - name: Confirm services are running
       service:
