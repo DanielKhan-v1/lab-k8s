@@ -12,9 +12,9 @@
       classic: yes
   - name: Enable services
     shell: microk8s enable dashboard dns registry istio
-
-  - name: Create kube config
-    shell: . create_kube.sh
+#
+#  - name: Create kube config
+#    shell: . create_kube.sh
 
   - name: Install helm
     snap:
