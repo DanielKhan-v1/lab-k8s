@@ -14,7 +14,7 @@
     shell: microk8s enable dashboard dns registry istio
 
   - name: Create kube config
-    shell: . ~/lab-k8s/create_kube.sh
+    shell: mkdir ~/.kube && touch ~/.kube/config && microk8s kubectl config view --raw >~/.kube/config
 
   - name: Install helm
     snap:
