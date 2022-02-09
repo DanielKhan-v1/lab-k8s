@@ -11,10 +11,10 @@
       name: microk8s
       classic: yes
   - name: Enable services
-    shell: microk8s enable dashboard dns registry istio
+    shell: microk8s enable dashboard dns
 
   - name: Create kube config
-    command: mkdir ~/.kube && touch ~/.kube/config && microk8s kubectl config view --raw >~/.kube/config
+    shell: microk8s kubectl config view --raw >~/.kube/config
 
   - name: Install helm
     snap:
