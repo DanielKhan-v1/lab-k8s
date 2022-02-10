@@ -97,14 +97,20 @@ resource "aws_main_route_table_association" "main-rtb" {
   route_table_id = aws_route_table.route-table.id
 }
 
+resource "aws_key_pair" "deployer" {
+  key_name   = "daniil-key"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQClguu9v4rFaVaoc1mPn++1KwvaoQOWyZvgH7NF0v2O5lAAjlhYpVmi4QeJS5gsy4xzbVWJO8iNPFOYlP38dIhlCC9iNaOn8BH9mtPv7ZAg1raGI9QySoHiaTPa0DkBqjoXoiiXBULlrQ4ccf5uMT0BLRbzSGj2cPYshUDnomx9Yr51Zzrm3QyKxFnl889CugLhr+LWYeEN9GM3qEpQKLcFikCrxMr8eKQMzURt9Cg1TEjskHRZJK4ITYoxXCARXiBsX1feiPbFBOQ0fPM4Xa9tyD0Vi5NstM90WYcoYh+32UElqcTlcEv5I1DBQ1uTwXfs30TSvliJRKa+5im+gWVTj9bP21eRM+ul+4I5uUDD46NyNx1V6d2KW9rdRMPyWLjOUvTzkIPgvqWbj2/y0Md1bol9UzNLf1tIf6COQVj2WPtFUWJI/wj9cGcwgn+4j7EKTMxwTFveDAEvaFlPxKF+ai6u4gzgHDV1VNRPfvxErSqcI/MwvZwitLalUymQ17c= grigorovich314@gmail.com"
+}
+
 resource "aws_instance" "app_server" {
   ami           = var.ami
   instance_type = var.ami_instance_type
   subnet_id     = aws_subnet.subnet.id
+  key_name = aws_key_pair.deployer.key_name
   iam_instance_profile = "jenkins"
   depends_on = [aws_internet_gateway.gateway]
   root_block_device {
-    volume_size = "20"
+    volume_size = "35"
   }
   tags = {
     Name = "lab-EC2_instance-daniil"

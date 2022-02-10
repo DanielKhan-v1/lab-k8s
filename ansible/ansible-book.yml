@@ -10,11 +10,12 @@
     snap:
       name: microk8s
       classic: yes
+
+  - name: Microk8s wait ready
+    shell: microk8s status --wait-ready
+
   - name: Enable services
     shell: microk8s enable dashboard dns
-
-  - name: Create kube config
-    shell: microk8s kubectl config view --raw >~/.kube/config
 
   - name: Install helm
     snap:
@@ -26,10 +27,26 @@
       name: remote
       repo_url: "https://danielkhan-v1.github.io/lab-k8s/"
 
-  - name: Helm start
+  - name: Helm Jenkins start
     kubernetes.core.helm:
       release_name: "jenkins"
       release_namespace: "jenkins"
       create_namespace: yes
       kubeconfig: ~/.kube/config
       chart_ref: remote/jenkins
+
+  - name: Helm Postgres start
+    kubernetes.core.helm:
+      release_name: "postgres"
+      release_namespace: "postgres"
+      create_namespace: yes
+      kubeconfig: ~/.kube/config
+      chart_ref: remote/postgres
+
+  - name: Helm Sonarqube start
+    kubernetes.core.helm:
+      release_name: "sonarqube"
+      release_namespace: "sonarqube"
+      create_namespace: yes
+      kubeconfig: ~/.kube/config
+      chart_ref: remote/sonarqube
