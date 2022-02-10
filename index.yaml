@@ -3,12 +3,12 @@ entries:
   jenkins-sonar-post:
   - apiVersion: v2
     appVersion: 1.3.0
-    created: "2022-02-10T14:49:30.390652+01:00"
+    created: "2022-02-10T15:31:10.87311+01:00"
     description: A Helm chart for Kubernetes
-    digest: a88e9b990e48ca52c1d17b1e267d3955ad77550aa51b363af8d9651a906fd598
+    digest: 2a2a64d65c589a0df6abd8fd4de3b866eba368208153dd4fd1a699d970ed2e12
     name: jenkins-sonar-post
     type: application
     urls:
-    - jenkins-sonar-post-0.4.2.tgz
-    version: 0.4.2
-generated: "2022-02-10T14:49:30.389817+01:00"
+    - jenkins-sonar-post-0.4.3.tgz
+    version: 0.4.3
+generated: "2022-02-10T15:31:10.87285+01:00"
