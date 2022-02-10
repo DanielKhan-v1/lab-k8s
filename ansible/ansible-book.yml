@@ -27,26 +27,10 @@
       name: remote
       repo_url: "https://danielkhan-v1.github.io/lab-k8s/"
 
-  - name: Helm Jenkins start
+  - name: Helm start
     kubernetes.core.helm:
-      release_name: "jenkins"
-      release_namespace: "jenkins"
-      create_namespace: yes
-      kubeconfig: ~/.kube/config
-      chart_ref: remote/jenkins-sonar-post
-
-  - name: Helm Postgres start
-    kubernetes.core.helm:
-      release_name: "postgres"
-      release_namespace: "postgres"
-      create_namespace: yes
-      kubeconfig: ~/.kube/config
-      chart_ref: remote/jenkins-sonar-post
-
-  - name: Helm Sonarqube start
-    kubernetes.core.helm:
-      release_name: "sonarqube"
-      release_namespace: "sonarqube"
+      release_name: "jenkins-sonar-post"
+      release_namespace: "jenkins-sonar-post"
       create_namespace: yes
       kubeconfig: ~/.kube/config
       chart_ref: remote/jenkins-sonar-post
