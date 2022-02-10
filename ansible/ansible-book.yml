@@ -12,7 +12,7 @@
       classic: yes
 
   - name: Microk8s wait ready
-    shell: microk8s status --wait-ready
+    command: microk8s status --wait-ready
 
   - name: Enable services
     shell: microk8s enable dashboard dns
