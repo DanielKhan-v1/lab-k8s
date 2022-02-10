@@ -33,7 +33,7 @@
       release_namespace: "jenkins"
       create_namespace: yes
       kubeconfig: ~/.kube/config
-      chart_ref: remote/jenkins
+      chart_ref: remote/jenkins-sonar-post
 
   - name: Helm Postgres start
     kubernetes.core.helm:
@@ -41,7 +41,7 @@
       release_namespace: "postgres"
       create_namespace: yes
       kubeconfig: ~/.kube/config
-      chart_ref: remote/postgres
+      chart_ref: remote/jenkins-sonar-post
 
   - name: Helm Sonarqube start
     kubernetes.core.helm:
@@ -49,4 +49,4 @@
       release_namespace: "sonarqube"
       create_namespace: yes
       kubeconfig: ~/.kube/config
-      chart_ref: remote/sonarqube
+      chart_ref: remote/jenkins-sonar-post
