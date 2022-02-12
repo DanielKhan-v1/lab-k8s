@@ -1,12 +1,5 @@
 #!/bin/bash
 
-sudo mkfs -t ext4 /dev/nvme1n1
-sudo mkdir /mnt/ebs
-sudo mount /dev/nvme1n1 /mnt/ebs
-sudo su
-echo "/dev/nvme1n1  /mnt/ebs  ext4  defaults,nofail  0  2" >> /etc/fstab
-exit
-
 sudo sudo apt update -y
 sudo apt install ansible
 sudo apt upgrade -y
