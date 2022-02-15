@@ -20,7 +20,7 @@
     shell: microk8s config > /home/ubuntu/.kube/config
 
   - name: Enable services
-    shell: microk8s enable dashboard dns egistry istio
+    shell: microk8s enable dashboard dns
 
   - name: Install helm
     snap:
